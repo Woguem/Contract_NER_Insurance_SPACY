@@ -1,0 +1,1 @@
+This project uses a pre-trained SAPCY model “en_core_web_trf”, to extract entities in a contract document.

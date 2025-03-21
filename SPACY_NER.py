@@ -1,9 +1,7 @@
 import spacy
-from spacy import displacy
-import pandas as pd
 import PyPDF2
 
-# Extraction du texte depuis un fichier PDF
+# Extract text from a PDF file
 def extract_text_from_pdf(pdf_path):
     with open(pdf_path, 'rb') as file:
         reader = PyPDF2.PdfReader(file)
@@ -12,18 +10,18 @@ def extract_text_from_pdf(pdf_path):
             text += reader.pages[page].extract_text()
     return text
 
-# Chargement du modèle pré-entraîné spaCy
+# Loading the spaCy pre-trained model
 nlp = spacy.load("en_core_web_trf")
 
-# Traitement du texte pour NER
+# Text processing for NER
 def extract_entities(text):
     doc = nlp(text)
     entities = [(entity.text, entity.label_) for entity in doc.ents]
     return entities
 
-# Exemple d'application
+# Application example
 pdf_text = extract_text_from_pdf("Exemple_contrat-de-pret-frauduleux.pdf")
 entities = extract_entities(pdf_text)
 
-# Affichage des entités extraites
+# Displaying extracted entities
 print(entities)
