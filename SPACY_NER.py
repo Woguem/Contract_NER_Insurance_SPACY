@@ -1,3 +1,8 @@
+"""
+@author: Dr Yen Fred WOGUEM 
+
+"""
+
 import spacy
 import PyPDF2
 
